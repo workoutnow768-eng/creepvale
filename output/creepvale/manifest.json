@@ -1,0 +1,20 @@
+[
+  {
+    "scene_index": 5,
+    "title": "porcelain doll on a dusty shelf",
+    "final_path": "/home/runner/work/creepvale/creepvale/scripts/../output/creepvale/post_0/final.mp4",
+    "scheduled_at": "2026-09-23T08:00:00Z"
+  },
+  {
+    "scene_index": 6,
+    "title": "figure in the attic window",
+    "final_path": "/home/runner/work/creepvale/creepvale/scripts/../output/creepvale/post_1/final.mp4",
+    "scheduled_at": "2026-09-23T14:00:00Z"
+  },
+  {
+    "scene_index": 7,
+    "title": "flooded basement stairs",
+    "final_path": "/home/runner/work/creepvale/creepvale/scripts/../output/creepvale/post_2/final.mp4",
+    "scheduled_at": "2026-09-23T20:00:00Z"
+  }
+]

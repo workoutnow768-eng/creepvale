@@ -5,11 +5,11 @@
   "music_offset_seconds": 12.0,
   "last_run_at": "2026-09-21T21:30:39.786787Z",
   "last_run_slot": "github_actions_autonomous_bot",
-  "posts_per_day": 1,
+  "posts_per_day": 3,
   "daily_time_slots_uk": [
     "09:00",
     "15:00",
     "19:00"
   ],
-  "notes": "Initial state for creepvale -- posts_per_day set to 1 for the first test run, same as pallowyn's and dark-fantasy's testing process. Bump to 3 once a run succeeds end-to-end."
+  "notes": "End-to-end run confirmed working (image -> video -> mux -> commit -> Buffer schedule landed in Buffer's queue for the creelatin TikTok channel). posts_per_day bumped from 1 to 3 for full production cadence. Music track is still pallowyn's mismatched 'Carnival of the Macabre.mp3' placeholder -- swap MUSIC_TRACK_URL for a proper horror-ambient track before this goes fully live."
 }

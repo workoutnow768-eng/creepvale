@@ -2,7 +2,7 @@
   "_comment": "Bot-maintained rotation state for the creepvale video pipeline. Do not hand-edit last_scene_index/scheduled_up_to/music_offset_seconds while the bot is running on schedule -- it owns these fields.",
   "last_scene_index": 5,
   "scheduled_up_to": "2026-09-23T02:00:00Z",
-  "music_offset_seconds": 30.0,
+  "music_offset_seconds": 0.0,
   "last_run_at": "2026-09-21T21:56:18.523950Z",
   "last_run_slot": "github_actions_autonomous_bot",
   "posts_per_day": 3,
@@ -11,5 +11,5 @@
     "15:00",
     "19:00"
   ],
-  "notes": "End-to-end run confirmed working (image -> video -> mux -> commit -> Buffer schedule landed in Buffer's queue for the creelatin TikTok channel). posts_per_day bumped from 1 to 3 for full production cadence. Music track is still pallowyn's mismatched 'Carnival of the Macabre.mp3' placeholder -- swap MUSIC_TRACK_URL for a proper horror-ambient track before this goes fully live."
+  "notes": "Scenes rewritten with more specific unsettling detail (was reading flat before). Music track swapped to 'Ambient Horror Creepy Atmosphere Dark' by alex-morgan on Pixabay (was pallowyn's fast, mismatched placeholder). music_offset_seconds reset to 0.0 since the old offset was measured against the old track. Channels now include Instagram (shocking_clipz) and YouTube (Shocking clips) alongside TikTok (creelatin)."
 }

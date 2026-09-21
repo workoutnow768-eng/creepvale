@@ -26,8 +26,10 @@ MANIFEST_PATH = os.path.join(OUTPUT_DIR, "manifest.json")
 
 # NOTE: the Buffer channel for this niche is actually named "creelatin"
 # (confirmed in the Buffer sidebar), not "creepvale" -- naming was
-# ambiguous during planning, this is the resolved value.
-CHANNELS = ["creelatin"]  # Buffer channel name(s) to post to -- update if IG/YouTube use different names
+# ambiguous during planning, this is the resolved value. Instagram
+# (shocking_clipz) and YouTube ("Shocking clips") were added once the
+# user confirmed Instagram is not restricted/checkpointed.
+CHANNELS = ["creelatin", "shocking_clipz", "Shocking clips"]
 BUFFER_TOKEN_ENV = "BUFFER_API"
 MUSIC_TRACK_URL_ENV = "MUSIC_TRACK_URL"
 

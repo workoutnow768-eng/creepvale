@@ -24,7 +24,10 @@ STATE_PATH = os.path.join(os.path.dirname(__file__), "..", "state", "creepvale_s
 OUTPUT_DIR = os.path.join(os.path.dirname(__file__), "..", "output", "creepvale")
 MANIFEST_PATH = os.path.join(OUTPUT_DIR, "manifest.json")
 
-CHANNELS = ["creepvale"]  # Buffer channel name(s) to post to -- update if IG/YouTube use different names
+# NOTE: the Buffer channel for this niche is actually named "creelatin"
+# (confirmed in the Buffer sidebar), not "creepvale" -- naming was
+# ambiguous during planning, this is the resolved value.
+CHANNELS = ["creelatin"]  # Buffer channel name(s) to post to -- update if IG/YouTube use different names
 BUFFER_TOKEN_ENV = "BUFFER_API"
 MUSIC_TRACK_URL_ENV = "MUSIC_TRACK_URL"
 

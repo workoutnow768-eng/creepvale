@@ -1,17 +1,31 @@
 """
 Scene bank for the creepvale (Horror/Spooky) video pipeline. Follows
 CREEPVALE_VIDEO_STYLE.md exactly -- atmospheric dread, NOT gore or
-jump-scares. 12 scenes, alternating has_people true/false 6/6 (same
-pattern as dark-fantasy's and pallowyn's scene_bank.py).
+jump-scares. Uses Higgsfield Soul v2 for the still + Minimax Hailuo 2.3
+image-to-video for the animate step, same as pallowyn/dark-fantasy.
 
-Revised twice now for more specific, unsettling detail -- first pass
-added one concrete "wrongness" detail per scene (an object out of
-place, an impossible shadow, a trace with no explanation) instead of
-relying on the silhouette alone to carry the scene. This second pass
-layers in an additional sensory/environmental detail per scene (a
-second wrongness cue, texture, or trace of recent presence) so each
-image reads as a fuller, more specific moment rather than one idea
-repeated with different set dressing.
+Third revision (2026-10-01), two changes based on direct feedback that
+the videos "look like a still image with a tiny bit of flame movement"
+and that posts "keep almost repeating themselves":
+
+  1. Hailuo 2.3 has NO structural camera_fixed parameter -- camera
+     behavior is driven entirely by animate_prompt wording. Every scene
+     previously said "camera completely locked... no camera movement
+     whatsoever", which directly told the model to barely move. That
+     phrasing is gone -- every animate_prompt below now asks for a real,
+     deliberate camera move (push-in, pull-back, pan, tilt, orbit, or
+     dolly), varied scene to scene, while keeping the figures/props in a
+     scene themselves mostly still (per CREEPVALE_VIDEO_STYLE's "dread,
+     not jump-scare" rule) so it's the camera that creates motion, not
+     things leaping around.
+  2. Bank grew from 12 to 16 scenes to stretch the rotation cycle at 3
+     posts/day from 4 days to a bit over 5, and the 4 new scenes use
+     different environments (root cellar, motel room, church pews) than
+     the existing hospital/forest/house/doorway set so the cycle doesn't
+     feel like reruns of the same few locations.
+
+`has_people` is roughly half true/false across the bank by design so
+consecutive posts don't repeat the same subject pattern.
 """
 
 SCENES = [
@@ -30,10 +44,12 @@ SCENES = [
             "cold desaturated color grade, thick dust hanging in the air, "
             "dark horror illustration style, wide cinematic composition, "
             "9:16 vertical, highly detailed, no text, no watermark",
-        "animate_prompt": "Camera completely locked and static, only the "
-            "fluorescent light flickers and dust drifts slowly through the "
-            "air, unsettling atmospheric horror mood, subtle ambient "
-            "motion only, no camera movement, no zoom, no pan",
+        "animate_prompt": "Bring this image to life with a slow dolly "
+            "forward down the corridor toward the dark open doorway at "
+            "the far end. The fluorescent light keeps flickering, dust "
+            "drifts through the air, the stopped footprints stay exactly "
+            "as they are. Unsettling atmospheric horror mood, not a "
+            "jump-scare, no text",
     },
     {
         "title": "figure at the end of the hall",
@@ -50,11 +66,12 @@ SCENES = [
             "floor, dark horror illustration style, wide cinematic "
             "composition, 9:16 vertical, highly detailed, no text, no "
             "watermark",
-        "animate_prompt": "Camera completely locked and static, the "
-            "figure remains perfectly still, only the fog drifts faintly "
-            "near the floor and the impossible shadow flickers slightly, "
-            "unsettling atmospheric horror mood, subtle ambient motion "
-            "only, no camera movement, no zoom, no pan",
+        "animate_prompt": "Bring this image to life with a slow push-in "
+            "toward the distant figure, the hallway appearing to slowly "
+            "lengthen as the camera approaches. The figure itself remains "
+            "perfectly still, only the fog drifts near the floor and the "
+            "impossible shadow flickers. Unsettling atmospheric horror "
+            "mood, not a jump-scare, no text",
     },
     {
         "title": "dead forest at night",
@@ -70,11 +87,12 @@ SCENES = [
             "path vanishes, cold desaturated blue-grey color grade, dark "
             "horror illustration style, wide cinematic composition, 9:16 "
             "vertical, highly detailed, no text, no watermark",
-        "animate_prompt": "Camera completely locked and static, only the "
-            "fog drifts slowly between the tree trunks and the distant "
-            "light flickers faintly, unsettling atmospheric horror mood, "
-            "subtle ambient motion only, no camera movement, no zoom, no "
-            "pan",
+        "animate_prompt": "Bring this image to life with a slow pan right, "
+            "sweeping across the dead trees toward the narrow deer path "
+            "and its distant light. Fog drifts slowly between the "
+            "trunks, the light flickers faintly, the pale shape at the "
+            "treeline does not move. Unsettling atmospheric horror mood, "
+            "not a jump-scare, no text",
     },
     {
         "title": "empty swing in overgrown yard",
@@ -91,10 +109,12 @@ SCENES = [
             "level, dark horror illustration style, wide cinematic "
             "composition, 9:16 vertical, highly detailed, no text, no "
             "watermark",
-        "animate_prompt": "Camera completely locked and static, only the "
-            "crooked swing sways very slightly on its remaining chain with "
-            "no visible cause, unsettling atmospheric horror mood, subtle "
-            "ambient motion only, no camera movement, no zoom, no pan",
+        "animate_prompt": "Bring this image to life with a slow pull-back, "
+            "widening from the crooked swing to reveal the full yard and "
+            "the glowing upstairs window. The swing sways very slightly "
+            "on its remaining chain with no visible cause, mist drifts "
+            "low. Unsettling atmospheric horror mood, not a jump-scare, "
+            "no text",
     },
     {
         "title": "watcher in the doorway",
@@ -110,11 +130,12 @@ SCENES = [
             "dust suspended in the air, cold desaturated color grade, dark "
             "horror illustration style, wide cinematic composition, 9:16 "
             "vertical, highly detailed, no text, no watermark",
-        "animate_prompt": "Camera completely locked and static, the "
-            "figure does not move, only dust motes drift slowly through "
-            "the light behind it, unsettling atmospheric horror mood, "
-            "subtle ambient motion only, no camera movement, no zoom, no "
-            "pan",
+        "animate_prompt": "Bring this image to life with a slow tilt "
+            "downward, starting on the figure's face and lowering to the "
+            "overturned chair and the seeping line of liquid. The figure "
+            "does not move, only dust motes drift through the light "
+            "behind it. Unsettling atmospheric horror mood, not a "
+            "jump-scare, no text",
     },
     {
         "title": "porcelain doll on a dusty shelf",
@@ -131,10 +152,11 @@ SCENES = [
             "crossing the shelf, cold desaturated color grade, dark horror "
             "illustration style, wide cinematic composition, 9:16 "
             "vertical, highly detailed, no text, no watermark",
-        "animate_prompt": "Camera completely locked and static, only "
-            "dust motes drift through the beam of light, unsettling "
-            "atmospheric horror mood, subtle ambient motion only, no "
-            "camera movement, no zoom, no pan",
+        "animate_prompt": "Bring this image to life with a slow push-in on "
+            "the doll's face, the height marks on the wall passing out of "
+            "frame as the camera closes in. Dust motes drift through the "
+            "beam of light. Unsettling atmospheric horror mood, not a "
+            "jump-scare, no text",
     },
     {
         "title": "figure in the attic window",
@@ -151,11 +173,12 @@ SCENES = [
             "ground level, dark horror illustration style, wide cinematic "
             "composition, 9:16 vertical, highly detailed, no text, no "
             "watermark",
-        "animate_prompt": "Camera completely locked and static, the "
-            "figure in the window does not move, only the weathervane "
-            "turns slightly and fog drifts near the ground, unsettling "
-            "atmospheric horror mood, subtle ambient motion only, no "
-            "camera movement, no zoom, no pan",
+        "animate_prompt": "Bring this image to life with a slow rising "
+            "camera movement, craning up from the tricycle on the ground "
+            "to the attic window. The figure in the window does not move, "
+            "only the weathervane turns slightly and fog drifts near the "
+            "ground. Unsettling atmospheric horror mood, not a "
+            "jump-scare, no text",
     },
     {
         "title": "flooded basement stairs",
@@ -172,11 +195,11 @@ SCENES = [
             "desaturated color grade, dark horror illustration style, wide "
             "cinematic composition, 9:16 vertical, highly detailed, no "
             "text, no watermark",
-        "animate_prompt": "Camera completely locked and static, only the "
-            "bare bulb sways gently, its reflection ripples faintly on the "
-            "water below, and the toy boat drifts in its slow circle, "
-            "unsettling atmospheric horror mood, subtle ambient motion "
-            "only, no camera movement, no zoom, no pan",
+        "animate_prompt": "Bring this image to life with a slow dolly "
+            "forward down the staircase toward the black water. The bare "
+            "bulb sways, its reflection ripples on the water below, and "
+            "the toy boat drifts in its slow circle. Unsettling "
+            "atmospheric horror mood, not a jump-scare, no text",
     },
     {
         "title": "rows of empty hospital beds",
@@ -194,11 +217,12 @@ SCENES = [
             "in the air, dark horror illustration style, wide cinematic "
             "composition, 9:16 vertical, highly detailed, no text, no "
             "watermark",
-        "animate_prompt": "Camera completely locked and static, only dust "
-            "drifts through the grey light, the call light blinks steadily "
-            "red, and one torn curtain shifts faintly, unsettling "
-            "atmospheric horror mood, subtle ambient motion only, no "
-            "camera movement, no zoom, no pan",
+        "animate_prompt": "Bring this image to life with a slow pan left "
+            "down the row of beds, ending on the one made bed with the "
+            "body-shaped impression. Dust drifts through the grey light, "
+            "the call light blinks steadily red, one torn curtain shifts. "
+            "Unsettling atmospheric horror mood, not a jump-scare, no "
+            "text",
     },
     {
         "title": "child silhouette at the tree line",
@@ -214,11 +238,12 @@ SCENES = [
             "drifting low, dark horror illustration style, wide cinematic "
             "composition, 9:16 vertical, highly detailed, no text, no "
             "watermark",
-        "animate_prompt": "Camera completely locked and static, the "
-            "silhouette remains perfectly still, only the mist drifts "
-            "faintly across the field and the distant porch light flickers "
-            "once, unsettling atmospheric horror mood, subtle ambient "
-            "motion only, no camera movement, no zoom, no pan",
+        "animate_prompt": "Bring this image to life with a slow pull-back "
+            "from the silhouette, widening to show the full field between "
+            "it and the distant porch light. The silhouette remains "
+            "perfectly still, only the mist drifts and the porch light "
+            "flickers once. Unsettling atmospheric horror mood, not a "
+            "jump-scare, no text",
     },
     {
         "title": "cracked mirror in a dark room",
@@ -233,11 +258,12 @@ SCENES = [
             "cold desaturated color grade, dark horror illustration style, "
             "wide cinematic composition, 9:16 vertical, highly detailed, "
             "no text, no watermark",
-        "animate_prompt": "Camera completely locked and static, only dust "
-            "motes drift past the mirror, the candle flame gutters, and "
-            "the light catching the crack shifts very faintly, unsettling "
-            "atmospheric horror mood, subtle ambient motion only, no "
-            "camera movement, no zoom, no pan",
+        "animate_prompt": "Bring this image to life with a slow orbital "
+            "drift to the left around the mirror, briefly revealing more "
+            "of the reflection's impossible second chair. Dust motes "
+            "drift, the candle flame gutters, the light on the crack "
+            "shifts. Unsettling atmospheric horror mood, not a "
+            "jump-scare, no text",
     },
     {
         "title": "congregation of candles in a cellar",
@@ -253,10 +279,72 @@ SCENES = [
             "obscuring detail, cold desaturated color grade, dark horror "
             "illustration style, wide cinematic composition, 9:16 "
             "vertical, highly detailed, no text, no watermark",
-        "animate_prompt": "Camera completely locked and static, the "
-            "figures remain motionless, only the candle flames flicker "
-            "gently and shadows shift faintly along the stone walls, "
-            "unsettling atmospheric horror mood, subtle ambient motion "
-            "only, no camera movement, no zoom, no pan",
+        "animate_prompt": "Bring this image to life with a slow push-in "
+            "toward the empty high-backed chair at the center of the "
+            "circle. The robed figures remain motionless, only the "
+            "candle flames flicker and shadows shift along the stone "
+            "walls. Unsettling atmospheric horror mood, not a "
+            "jump-scare, no text",
+    },
+    {
+        "title": "the root cellar door",
+        "has_people": False,
+        "still_prompt": "A heavy wooden root cellar door set at a steep "
+            "angle into an overgrown hillside, its iron latch hanging "
+            "open and a thick chain pooled uselessly in the weeds beside "
+            "it, deep claw-like gouges dragged across the wood from "
+            "inside out, a faint cold mist seeping from the gap at the "
+            "door's edge even though the night air around it is still, "
+            "dead sunflowers bowed over nearby, a single work boot left "
+            "standing upright a few feet from the door, cold desaturated "
+            "color grade, dark horror illustration style, wide cinematic "
+            "composition, 9:16 vertical, highly detailed, no text, no "
+            "watermark",
+        "animate_prompt": "Bring this image to life with a slow push-in "
+            "toward the gap at the door's edge where the mist seeps out. "
+            "The mist curls and thickens slightly, the dead sunflowers "
+            "sway faintly. Unsettling atmospheric horror mood, not a "
+            "jump-scare, no text",
+    },
+    {
+        "title": "motel room 12",
+        "has_people": True,
+        "still_prompt": "A dated motel room lit only by a buzzing neon "
+            "sign bleeding red light through the curtains, a figure "
+            "sitting rigidly upright on the edge of the bed facing the "
+            "wall instead of the door, the television on with no signal, "
+            "static light flickering across the room, a room-service tray "
+            "untouched on the dresser with a fork placed neatly across an "
+            "empty plate, the number '12' visible upside down through the "
+            "peephole view embedded faintly in the corner of the frame, "
+            "cold desaturated color grade with red neon bleed, dark "
+            "horror illustration style, wide cinematic composition, 9:16 "
+            "vertical, highly detailed, no text, no watermark",
+        "animate_prompt": "Bring this image to life with a slow pan right "
+            "from the static-filled television to the motionless seated "
+            "figure. The static flickers and shifts, the neon sign buzzes "
+            "and pulses faintly through the curtains. Unsettling "
+            "atmospheric horror mood, not a jump-scare, no text",
+    },
+    {
+        "title": "the last pew",
+        "has_people": False,
+        "still_prompt": "The interior of an abandoned small-town church "
+            "at night, rows of splintered wooden pews receding toward a "
+            "collapsed altar, a single hymnal left open on the last pew "
+            "to a page with no printed text at all, moonlight falling "
+            "through a broken stained-glass window and scattering colored "
+            "light across the dusty floor in a pattern that doesn't match "
+            "the window's actual shape, cobwebs thick between the rafters, "
+            "a rope from the bell tower dangling down through a hole in "
+            "the ceiling, cold desaturated color grade, dark horror "
+            "illustration style, wide cinematic composition, 9:16 "
+            "vertical, highly detailed, no text, no watermark",
+        "animate_prompt": "Bring this image to life with a slow dolly "
+            "forward up the center aisle toward the collapsed altar. The "
+            "colored light shifts faintly as clouds pass outside the "
+            "window, the bell rope sways almost imperceptibly, dust "
+            "drifts in the moonlight. Unsettling atmospheric horror mood, "
+            "not a jump-scare, no text",
     },
 ]

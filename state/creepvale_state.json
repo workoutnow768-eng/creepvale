@@ -1,9 +1,9 @@
 {
   "_comment": "Bot-maintained rotation state for the creepvale video pipeline. Do not hand-edit last_scene_index/scheduled_up_to/music_offset_seconds while the bot is running on schedule -- it owns these fields.",
-  "last_scene_index": 14,
-  "scheduled_up_to": "2026-10-03T20:00:00Z",
-  "music_offset_seconds": 114.0,
-  "last_run_at": "2026-10-06T21:53:22.581500Z",
+  "last_scene_index": 2,
+  "scheduled_up_to": "2026-10-04T14:00:00Z",
+  "music_offset_seconds": 132.0,
+  "last_run_at": "2026-10-07T22:15:37.471653Z",
   "last_run_slot": "github_actions_autonomous_bot",
   "posts_per_day": 3,
   "daily_time_slots_uk": [
